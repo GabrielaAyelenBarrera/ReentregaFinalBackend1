@@ -1,0 +1,25 @@
+<h2>Carrito de Compras</h2>
+<ul id="carts-list">
+  {{#each cartItems}}
+    <li>
+      <strong>{{this.productTitle}}</strong><br>
+      Cantidad: 
+      <input type="number" class="quantity-input" 
+             data-product-id="{{this.productId}}" 
+             value="{{this.quantity}}" min="1">
+      <button class="update-quantity" 
+              data-product-id="{{this.productId}}">
+        Actualizar Cantidad
+      </button>
+      <button class="remove-from-cart" 
+              data-product-id="{{this.productId}}">
+        Eliminar del Carrito
+      </button>
+    </li>
+  {{/each}}
+</ul>
+<button id="clear-cart">Vaciar Carrito</button>
+<button id="checkout">Finalizar Compra</button>
+<a href="/products">Volver a la tienda</a>
+
+<script src="/js/carts.js"></script>

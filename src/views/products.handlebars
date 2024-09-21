@@ -1,0 +1,38 @@
+<h2>Lista de Productos</h2>
+<ul id="product-list">
+    {{#each products}}
+    <li>
+      <strong>{{this.title}}</strong> <br>
+      Código: {{this.code}}<br>
+      Descripción: {{this.description}}<br>
+      Precio: ${{this.price}}<br>
+      Stock: {{this.stock}}<br>
+      Categoría: {{this.category}}<br>
+      Estado: {{#if this.status}}Disponible{{else}}No disponible{{/if}}<br>
+      <a href="/products/{{this._id}}">Ver detalles</a>
+      <button class="add-to-cart" 
+              data-product-id="{{this._id}}" 
+              data-title="{{this.title}}">
+        Agregar al Carrito
+      </button>
+    </li>
+    {{/each}}
+</ul>
+
+<!-- Sección de paginación -->
+<div id="pagination">
+    {{#if hasPrevPage}}
+    <a href="{{prevLink}}">Página Anterior</a>
+    {{/if}}
+
+    {{#if hasNextPage}}
+    <a href="{{nextLink}}">Página Siguiente</a>
+    {{/if}}
+</div>
+
+<!-- Botón para ver el carrito -->
+<div id="view-cart-section">
+  <a href="/cart" class="btn btn-primary">Ver Carrito</a>
+</div>
+
+<script src="/js/products.js"></script>
